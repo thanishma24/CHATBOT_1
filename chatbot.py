@@ -9,8 +9,8 @@ st.title("Chatbot - your  ai assistant ")
 st.write("Welcome to the my chatbot! How can i help you?")
 if "messages" not in st.session_state:
   st.session_state.messages=[]
-for messages in st.session_state.messages:
-  with st.chat_messages(messages["role"]):
+for message in st.session_state.messages:
+  with st.chat_message(message["role"]):
     st.markdown(message["content"])
 if prompt := st.chat_input("Say something..."):
   st.session_state.messages.append({"role": "user","content" : prompt})

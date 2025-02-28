@@ -13,7 +13,7 @@ for messages in st.session_state.messages:
   with st.chat_messages(messages["role"]):
     st.markdown(message["content"])
 if prompt := st.chat_input("Say something..."):
-  st.session_state.messages.append("role": "user","content" : prompt))
+  st.session_state.messages.append({"role": "user","content" : prompt})
   with st.chat_message("user"):
     st.markdown(prompt)
   response = st.session_state.chat.send_message(prompt)
